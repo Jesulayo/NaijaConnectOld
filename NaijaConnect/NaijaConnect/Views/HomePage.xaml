@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage
+    x:Class="NaijaConnect.Views.HomePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:model="clr-namespace:NaijaConnect.Models"
+    xmlns:prism="http://prismlibrary.com"
+    xmlns:view="clr-namespace:NaijaConnect.Views"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    NavigationPage.HasBackButton="False">
+
+    <NavigationPage.TitleView>
+        <Grid Margin="0,0,10,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="30" />
+                <!--<ColumnDefinition Width="30" />-->
+            </Grid.ColumnDefinitions>
+
+            <Frame
+                Grid.Column="0"
+                Padding="0"
+                CornerRadius="25"
+                HeightRequest="50"
+                HorizontalOptions="Center"
+                IsClippedToBounds="True"
+                VerticalOptions="Center"
+                WidthRequest="50">
+                <Image
+                    HorizontalOptions="Center"
+                    Source="{Binding Avatar}"
+                    VerticalOptions="Center" />
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NavigateProfileCommand}" NumberOfTapsRequired="1" />
+                </Frame.GestureRecognizers>
+            </Frame>
+            <Label
+                Grid.Column="1"
+                Padding="20,0,0,0"
+                HorizontalOptions="Start"
+                Style="{StaticResource WhiteMediumBold}"
+                Text="{Binding Username}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NavigateProfileCommand}" NumberOfTapsRequired="1" />
+                </Label.GestureRecognizers>
+            </Label>
+            <Label
+                Grid.Column="2"
+                FontFamily="{StaticResource MaterialFontFamily}"
+                FontSize="28"
+                HorizontalTextAlignment="Center"
+                Text="{x:Static model:IconFont.Magnify}"
+                TextColor="{StaticResource White}"
+                VerticalTextAlignment="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NavigateSearchCommand}" NumberOfTapsRequired="1" />
+                </Label.GestureRecognizers>
+            </Label>
+            <!--<Label
+                Grid.Column="3"
+                FontFamily="{StaticResource MaterialFontFamily}"
+                FontSize="28"
+                HorizontalTextAlignment="Center"
+                Text="{x:Static model:IconFont.DotsVertical}"
+                TextColor="{StaticResource White}"
+                VerticalTextAlignment="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NavigateChatPageCommand}" NumberOfTapsRequired="1" />
+                </Label.GestureRecognizers>
+            </Label>-->
+        </Grid>
+    </NavigationPage.TitleView>
+
+    <view:GroupChatListPage />
+    <view:ChatListPage />
+
+</TabbedPage>

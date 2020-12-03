@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             xmlns:behavior="clr-namespace:NaijaConnect.Behaviors"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="NaijaConnect.Views.NewGroupChatPage">
+
+    <NavigationPage.TitleView>
+        <Frame
+            Margin="0,0,15,0"
+            Padding="0"
+            CornerRadius="10"
+            HeightRequest="50"
+            IsClippedToBounds="True">
+            <SearchBar
+                x:Name="newUsers"
+                BackgroundColor="{StaticResource White}"
+                CancelButtonColor="Red"
+                Placeholder="Search"
+                PlaceholderColor="{StaticResource LightGreen}">
+                <SearchBar.Behaviors>
+                    <behavior:EventToCommandBehavior
+                        Command="{Binding searchCommand}"
+                        CommandParameter="{Binding Text, Source={x:Reference newUsers}}"
+                        EventName="TextChanged" />
+                </SearchBar.Behaviors>
+            </SearchBar>
+
+        </Frame>
+    </NavigationPage.TitleView>
+
+    <StackLayout>
+
+        <Label Text="Create new group" Style="{StaticResource BlackMediumRegular}">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding NavigateCreateNewGroupCommand}" NumberOfTapsRequired="1"/>
+            </Label.GestureRecognizers>
+        </Label>
+        
+        <CollectionView
+        ItemsSource="{Binding AllGroups}"
+        SelectedItem="{Binding GroupSelection}"
+        SelectionChangedCommand="{Binding NavigateSelectionCommand}"
+        SelectionMode="Single">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="10,0,10,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="70" />
+                            <RowDefinition Height="1" />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Frame
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Padding="0"
+                        CornerRadius="30"
+                        HeightRequest="60"
+                        HorizontalOptions="Center"
+                        IsClippedToBounds="True"
+                        VerticalOptions="Center"
+                        WidthRequest="60">
+                            <Image
+                            HorizontalOptions="Center"
+                            Source="{Binding Avatar}"
+                            VerticalOptions="Center" />
+                        </Frame>
+
+                        <StackLayout
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Spacing="0"
+                        VerticalOptions="Center">
+                            <Label
+                            HorizontalOptions="Start"
+                            Style="{StaticResource BlackMediumBold}"
+                            Text="{Binding Name}" />
+                            <Label
+                            HorizontalOptions="Start"
+                            Style="{StaticResource BlackSmallRegular}"
+                            Text="{Binding Description}" />
+                        </StackLayout>
+
+                        <BoxView
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Opacity="0.3"
+                        Color="{StaticResource Green}" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <!--<ListView ItemsSource="{Binding AllUsers}" RowHeight="70">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Grid Padding="10,0,10,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="70" />
+                            <RowDefinition Height="1" />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Frame
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Padding="0"
+                            CornerRadius="30"
+                            HeightRequest="60"
+                            HorizontalOptions="Center"
+                            IsClippedToBounds="True"
+                            VerticalOptions="Center"
+                            WidthRequest="60">
+                            <Image
+                                HorizontalOptions="Center"
+                                Source="{Binding ProfilePicture}"
+                                VerticalOptions="Center" />
+                        </Frame>
+
+                        <StackLayout
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Spacing="0"
+                            VerticalOptions="Center">
+                            <Label
+                                HorizontalOptions="Start"
+                                Style="{StaticResource BlackMediumBold}"
+                                Text="{Binding Username}" />
+                            <Label
+                                HorizontalOptions="Start"
+                                Style="{StaticResource BlackSmallRegular}"
+                                Text="{Binding Department}" />
+                        </StackLayout>
+
+                        <BoxView
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Opacity="0.3"
+                            Color="{StaticResource Green}" />
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>-->
+    </StackLayout>
+</ContentPage>

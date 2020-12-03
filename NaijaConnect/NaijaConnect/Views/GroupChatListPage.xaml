@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="NaijaConnect.Views.GroupChatListPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:components="clr-namespace:NaijaConnect.Components"
+    xmlns:model="clr-namespace:NaijaConnect.Models"
+    xmlns:prism="http://prismlibrary.com"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    Title="{Binding Title}"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    NavigationPage.HasBackButton="False">
+
+    <Grid>
+        <CollectionView
+            ItemsSource="{Binding MyGroupChat}"
+            SelectedItem="{Binding GroupChatSelection}"
+            SelectionChangedCommand="{Binding NavigateGroupChatSelectionCommand}"
+            SelectionMode="Single">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <components:GroupListTemplate />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <yummy:PancakeView
+            Margin="0,0,30,30"
+            BackgroundColor="{StaticResource LightGreen}"
+            CornerRadius="30"
+            Elevation="400"
+            HasShadow="True"
+            HeightRequest="60"
+            HorizontalOptions="End"
+            VerticalOptions="End"
+            WidthRequest="60">
+            <Label
+                FontFamily="{StaticResource MaterialFontFamily}"
+                FontSize="30"
+                HorizontalTextAlignment="Center"
+                Text="{x:Static model:IconFont.Plus}"
+                TextColor="{StaticResource White}"
+                VerticalTextAlignment="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NavigateNewGroupChatPageCommand}" NumberOfTapsRequired="1" />
+                </Label.GestureRecognizers>
+            </Label>
+        </yummy:PancakeView>
+    </Grid>
+</ContentPage>

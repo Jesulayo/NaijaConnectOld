@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary
+    x:Class="NaijaConnect.Styles.Fonts"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <OnPlatform x:Key="OpenSansRegular" x:TypeArguments="x:String">
+        <On Platform="Android" Value="OpenSans-Regular.ttf#OpenSans-Regular" />
+        <On Platform="iOS" Value="OpenSans-Regular" />
+    </OnPlatform>
+
+    <OnPlatform x:Key="OpenSansLight" x:TypeArguments="x:String">
+        <On Platform="Android" Value="OpenSans-Light.ttf#OpenSans-Light" />
+        <On Platform="iOS" Value="OpenSans-Light" />
+    </OnPlatform>
+
+    <OnPlatform x:Key="OpenSansSemiBold" x:TypeArguments="x:String">
+        <On Platform="Android" Value="OpenSans-SemiBold.ttf#OpenSans-SemiBold" />
+        <On Platform="iOS" Value="OpenSans-SemiBold" />
+    </OnPlatform>
+
+    <OnPlatform x:Key="OpenSansBold" x:TypeArguments="x:String">
+        <On Platform="Android" Value="OpenSans-Bold.ttf#OpenSans-Bold" />
+        <On Platform="iOS" Value="OpenSans-Bold" />
+    </OnPlatform>
+
+    <OnPlatform x:Key="MaterialFontFamily" x:TypeArguments="x:String">
+        <On Platform="Android" Value="materialdesignicons-webfont.ttf#Material Design Icons" />
+        <On Platform="iOS" Value="Material Design Icons" />
+    </OnPlatform>
+</ResourceDictionary>

@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="NaijaConnect.Views.CreateNewGroupPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+    xmlns:prism="http://prismlibrary.com"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    Title="{Binding Title}"
+    prism:ViewModelLocator.AutowireViewModel="True">
+
+    <ScrollView>
+        <Grid Padding="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="250" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+
+            <Frame
+                Grid.Row="0"
+                Padding="0"
+                CornerRadius="100"
+                HeightRequest="200"
+                HorizontalOptions="Center"
+                IsClippedToBounds="True"
+                VerticalOptions="Center"
+                WidthRequest="200">
+                <Image
+                    HeightRequest="200"
+                    Source="{Binding Avatar.Source}"
+                    WidthRequest="200">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavigatePickGroupAvatarCommand}" NumberOfTapsRequired="1"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </Frame>
+
+            <yummy:PancakeView
+                Grid.Row="1"
+                Padding="0"
+                BorderColor="{StaticResource LightGreen}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <material:MaterialTextField
+                    AlwaysShowUnderline="True"
+                    BackgroundColor="{StaticResource White}"
+                    FloatingPlaceholderColor="{StaticResource LightGreen}"
+                    FloatingPlaceholderEnabled="True"
+                    InputType="Chat"
+                    IsEnabled="True"
+                    Placeholder="Group Name"
+                    PlaceholderColor="{StaticResource LightGreen}"
+                    PlaceholderFontFamily="{StaticResource OpenSansRegular}"
+                    ReturnType="Next"
+                    ShouldAnimateUnderline="True"
+                    Text="{Binding GroupName}"
+                    TextColor="{StaticResource LightGreen}"
+                    TextFontFamily="{StaticResource OpenSansRegular}"
+                    TextFontSize="15"
+                    TintColor="{StaticResource LightGreen}"
+                    UnderlineColor="{StaticResource LightGreen}" />
+            </yummy:PancakeView>
+
+            <yummy:PancakeView
+                Grid.Row="2"
+                Padding="-10"
+                BorderColor="{StaticResource LightGreen}"
+                BorderThickness="1"
+                CornerRadius="10">
+                <Editor
+                    Margin="20,10,20,0"
+                    FontFamily="{StaticResource OpenSansRegular}"
+                    FontSize="15"
+                    HeightRequest="300"
+                    Placeholder="Group Description"
+                    PlaceholderColor="{StaticResource LightGreen}"
+                    Text="{Binding Description}"
+                    TextColor="{StaticResource LightGreen}" />
+            </yummy:PancakeView>
+
+            <Button
+                Grid.Row="3"
+                Command="{Binding NavigateCreateGroupCommand}"
+                Style="{StaticResource GreenButton}"
+                Text="Create Group" />
+
+            <ActivityIndicator
+                Grid.Row="-0"
+                Grid.RowSpan="4"
+                HorizontalOptions="Center"
+                IsRunning="{Binding IsBusy}"
+                VerticalOptions="Center"
+                Color="{StaticResource LightGreen}" />
+        </Grid>
+    </ScrollView>
+</ContentPage>

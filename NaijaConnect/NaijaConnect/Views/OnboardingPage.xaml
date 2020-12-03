@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="NaijaConnect.Views.OnboardingPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:carousel="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+    xmlns:prism="http://prismlibrary.com"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    NavigationPage.HasNavigationBar="False">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.5*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <yummy:PancakeView
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            BackgroundGradientAngle="300"
+            BackgroundGradientEndColor="{StaticResource LightGreen}"
+            BackgroundGradientStartColor="{StaticResource Green}" />
+
+        <carousel:CarouselViewControl
+            x:Name="onboardingWalk"
+            Grid.Row="0"
+            AnimateTransition="True"
+            CurrentPageIndicatorTintColor="{StaticResource LightGreen}"
+            HorizontalOptions="Center"
+            IndicatorsShape="Circle"
+            IndicatorsTintColor="{StaticResource White}"
+            InterPageSpacing="0"
+            IsSwipeEnabled="True"
+            ItemsSource="{Binding Welcomes}"
+            Orientation="Horizontal"
+            ShowIndicators="True"
+            VerticalOptions="Center">
+            <carousel:CarouselViewControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Image Aspect="AspectFill" Source="{Binding Picture}" />
+                        <Label
+                            Margin="10,0,10,0"
+                            HorizontalOptions="Center"
+                            Style="{StaticResource WhiteMediumRegular}"
+                            Text="{Binding Note}"
+                            TranslationY="-40"
+                            VerticalOptions="End" />
+                    </Grid>
+                </DataTemplate>
+            </carousel:CarouselViewControl.ItemTemplate>
+        </carousel:CarouselViewControl>
+
+
+        <StackLayout
+            Grid.Row="1"
+            Margin="10,50,10,0"
+            BackgroundColor="Transparent"
+            Spacing="20">
+            <Button
+                x:Name="SignInButton"
+                Command="{Binding NavigateToSignInCommand}"
+                Style="{StaticResource LightGreenButton}"
+                Text="Sign In" />
+            <Button
+                x:Name="SignUpButton"
+                Command="{Binding NavigateToSignUpCommand}"
+                Style="{StaticResource WhiteButton}"
+                Text="Sign Up" />
+        </StackLayout>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary
+    x:Class="NaijaConnect.Styles.Global"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <!--  White  -->
+    <Style x:Key="WhiteSmallRegular" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource White}" />
+        <Setter Property="FontFamily" Value="{StaticResource OpenSansRegular}" />
+        <Setter Property="FontSize" Value="Small" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="VerticalOptions" Value="Center" />
+    </Style>
+
+    <Style x:Key="WhiteMediumRegular" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource White}" />
+        <Setter Property="FontFamily" Value="{StaticResource OpenSansRegular}" />
+        <Setter Property="FontSize" Value="Medium" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="VerticalOptions" Value="Center" />
+    </Style>
+
+    <Style x:Key="WhiteLargeRegular" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource White}" />
+        <Setter Property="FontFamily" Value="{StaticResource OpenSansRegular}" />
+        <Setter Property="FontSize" Value="Large" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="VerticalOptions" Value="Center" />
+    </Style>
+
+
+
+    <Style x:Key="WhiteMediumBold" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource White}" />
+        <Setter Property="FontFamily" Value="{StaticResource OpenSansBold}" />
+        <Setter Property="FontSize" Value="Medium" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="VerticalOptions" Value="Center" />
+    </Style>
+
+    <Style x:Key="WhiteLargeBold" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource White}" />
+        <Setter Property="FontFamily" Value="{StaticResource OpenSansBold}" />
+        <Setter Property="FontSize" Value="Large" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="VerticalOptions" Value="Center" />
+    </Style>
+
+
+
+    <!--  Green  -->
+    <Style x:Key="GreenSmallRegular" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource Green}" />
+        <Setter Property="FontFamily" Value="{StaticResource OpenSansRegular}" />
+        <Setter Property="FontSize" Value="Small" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="VerticalOptions" Value="Center" />
+    </Style>
+
+    <Style x:Key="GreenMediumRegular" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource Green}" />
+        <Setter Property="FontFamily" Value="{StaticResource OpenSansRegular}" />
+        <Setter Property="FontSize" Value="Medium" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="VerticalOptions" Value="Center" />
+    </Style>
+
+    <Style x:Key="GreenLargeRegular" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource Green}" />
+        <Setter Property="FontFamily" Value="{StaticResource OpenSansRegular}" />
+        <Setter Property="FontSize" Value="Large" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="VerticalOptions" Value="Center" />
+    </Style>
+
+
+    <Style x:Key="GreenMediumBold" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource Green}" />
+        <Setter Property="FontFamily" Value="{StaticResource OpenSansBold}" />
+        <Setter Property="FontSize" Value="Medium" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="VerticalOptions" Value="Center" />
+    </Style>
+
+    <Style x:Key="GreenLargeBold" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource Green}" />
+        <Setter Property="FontFamily" Value="{StaticResource OpenSansBold}" />
+        <Setter Property="FontSize" Value="Large" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="VerticalOptions" Value="Center" />
+    </Style>
+
+
+
+    <!--  LightGreen  -->
+    <Style x:Key="LightGreenSmallRegular" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource LightGreen}" />
+        <Setter Property="FontFamily" Value="{StaticResource OpenSansRegular}" />
+        <Setter Property="FontSize" Value="Small" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="VerticalOptions" Value="Center" />
+    </Style>
+
+    <Style x:Key="LightGreenMediumRegular" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource LightGreen}" />
+        <Setter Property="FontFamily" Value="{StaticResource OpenSansRegular}" />
+        <Setter Property="FontSize" Value="Medium" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="VerticalOptions" Value="Center" />
+    </Style>
+
+    <Style x:Key="LightGreenLargeRegular" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource LightGreen}" />
+        <Setter Property="FontFamily" Value="{StaticResource OpenSansRegular}" />
+        <Setter Property="FontSize" Value="Large" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="VerticalOptions" Value="Center" />
+    </Style>
+
+
+
+    <!--  Black  -->
+    <Style x:Key="BlackSmallRegular" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource Black}" />
+        <Setter Property="FontFamily" Value="{StaticResource OpenSansRegular}" />
+        <Setter Property="FontSize" Value="Small" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="VerticalOptions" Value="Center" />
+    </Style>
+
+    <Style x:Key="BlackMediumRegular" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource Black}" />
+        <Setter Property="FontFamily" Value="{StaticResource OpenSansRegular}" />
+        <Setter Property="FontSize" Value="Medium" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="VerticalOptions" Value="Center" />
+    </Style>
+
+    <Style x:Key="BlackLargeRegular" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource Black}" />
+        <Setter Property="FontFamily" Value="{StaticResource OpenSansRegular}" />
+        <Setter Property="FontSize" Value="Large" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="VerticalOptions" Value="Center" />
+    </Style>
+
+
+    <Style x:Key="BlackMediumBold" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource Black}" />
+        <Setter Property="FontFamily" Value="{StaticResource OpenSansBold}" />
+        <Setter Property="FontSize" Value="Medium" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="VerticalOptions" Value="Center" />
+    </Style>
+
+    <Style x:Key="BlackLargeBold" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource Black}" />
+        <Setter Property="FontFamily" Value="{StaticResource OpenSansBold}" />
+        <Setter Property="FontSize" Value="Large" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="VerticalOptions" Value="Center" />
+    </Style>
+
+</ResourceDictionary>

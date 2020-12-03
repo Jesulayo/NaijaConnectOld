@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="NaijaConnect.Views.ChatListPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:components="clr-namespace:NaijaConnect.Components"
+    xmlns:model="clr-namespace:NaijaConnect.Models"
+    xmlns:prism="http://prismlibrary.com"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    Title="{Binding Title}"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    NavigationPage.HasBackButton="False">
+
+    
+    <Grid>
+        <RefreshView
+            Command="{Binding NavigateRefreshCommand}"
+            IsRefreshing="{Binding IsBusy}"
+            RefreshColor="{StaticResource LightGreen}">
+            <CollectionView
+                ItemsSource="{Binding ChatList}"
+                SelectedItem="{Binding ChatSelection}"
+                SelectionChangedCommand="{Binding NavigateChatSelectionCommand}"
+                SelectionMode="Single">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <!--<StackLayout>
+                    <Label Text="{Binding Name}"/>
+                    <Label Text="{Binding Message}"/>
+                    </StackLayout>-->
+                        <components:ChatListTemplate />
+
+                        <!--<Grid Padding="10,0,10,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="70" />
+                            <RowDefinition Height="1" />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Frame
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Padding="0"
+                            CornerRadius="30"
+                            HeightRequest="60"
+                            HorizontalOptions="Center"
+                            IsClippedToBounds="True"
+                            VerticalOptions="Center"
+                            WidthRequest="60">
+                            <Image
+                                HorizontalOptions="Center"
+                                Source="{Binding UserProfilePicture}"
+                                VerticalOptions="Center" />
+                        </Frame>
+
+                        <StackLayout
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Spacing="0"
+                            VerticalOptions="Center">
+                            <Label
+                                HorizontalOptions="Start"
+                                Style="{StaticResource BlackMediumBold}"
+                                Text="{Binding Username}" />
+                            <Label
+                                HorizontalOptions="Start"
+                                Style="{StaticResource BlackSmallRegular}"
+                                Text="{Binding LastMessage}" />
+                        </StackLayout>
+
+                        <BoxView
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Opacity="0.3"
+                            Color="{StaticResource Green}" />
+                    </Grid>-->
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+
+        <yummy:PancakeView
+            Margin="0,0,30,30"
+            BackgroundColor="{StaticResource LightGreen}"
+            CornerRadius="30"
+            Elevation="400"
+            HasShadow="True"
+            HeightRequest="60"
+            HorizontalOptions="End"
+            VerticalOptions="End"
+            WidthRequest="60">
+            <Label
+                FontFamily="{StaticResource MaterialFontFamily}"
+                FontSize="30"
+                HorizontalTextAlignment="Center"
+                Text="{x:Static model:IconFont.Plus}"
+                TextColor="{StaticResource White}"
+                VerticalTextAlignment="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NavigateNewChatPageCommand}" NumberOfTapsRequired="1" />
+                </Label.GestureRecognizers>
+            </Label>
+        </yummy:PancakeView>
+    </Grid>
+</ContentPage>

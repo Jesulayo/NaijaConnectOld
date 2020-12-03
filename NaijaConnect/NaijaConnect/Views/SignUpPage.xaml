@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="NaijaConnect.Views.SignUpPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+    xmlns:prism="http://prismlibrary.com"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    NavigationPage.HasNavigationBar="False">
+
+    <ScrollView>
+        <Grid Opacity="{Binding Opacity}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="130" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="130" />
+            </Grid.RowDefinitions>
+
+            <yummy:PancakeView
+                Grid.Row="0"
+                Grid.RowSpan="5"
+                BackgroundGradientAngle="300"
+                BackgroundGradientEndColor="{StaticResource LightGreen}"
+                BackgroundGradientStartColor="{StaticResource Green}" />
+
+            <Label
+                x:Name="SignInLabel"
+                Grid.Row="0"
+                Padding="0,10,20,0"
+                HorizontalOptions="End"
+                Style="{StaticResource WhiteMediumRegular}"
+                Text="Sign In">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SignInPageCommand}" NumberOfTapsRequired="1" />
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Frame
+                Grid.Row="1"
+                Margin="20,0,0,0"
+                Padding="0"
+                BackgroundColor="{StaticResource White}"
+                CornerRadius="65"
+                HeightRequest="130"
+                HorizontalOptions="Start"
+                IsClippedToBounds="True"
+                VerticalOptions="Center"
+                WidthRequest="130">
+                <StackLayout Padding="9,25,0,0">
+                    <Image
+                        HorizontalOptions="Center"
+                        Scale="1.8"
+                        Source="naija_connect"
+                        VerticalOptions="Center" />
+                </StackLayout>
+            </Frame>
+
+            <Label
+                x:Name="HeadingLabel"
+                Grid.Row="2"
+                Margin="20,0,0,0"
+                HorizontalOptions="Start"
+                Style="{StaticResource WhiteLargeBold}"
+                Text="Create Your Account" />
+            <StackLayout Grid.Row="3" Padding="10,0,10,0">
+                <yummy:PancakeView
+                    x:Name="EmailEntry"
+                    Padding="0"
+                    CornerRadius="50">
+                    <material:MaterialTextField
+                        AlwaysShowUnderline="True"
+                        BackgroundColor="{StaticResource White}"
+                        FloatingPlaceholderColor="{StaticResource LightGreen}"
+                        FloatingPlaceholderEnabled="True"
+                        InputType="Email"
+                        IsEnabled="{Binding IsNotBusy}"
+                        Placeholder="Email"
+                        PlaceholderColor="{StaticResource LightGreen}"
+                        PlaceholderFontFamily="{StaticResource OpenSansRegular}"
+                        ReturnType="Next"
+                        ShouldAnimateUnderline="True"
+                        Text="{Binding Email}"
+                        TextColor="{StaticResource LightGreen}"
+                        TextFontFamily="{StaticResource OpenSansRegular}"
+                        TextFontSize="15"
+                        TintColor="{StaticResource LightGreen}"
+                        UnderlineColor="{StaticResource LightGreen}" />
+                </yummy:PancakeView>
+
+                <yummy:PancakeView
+                    x:Name="UsernameEntry"
+                    Padding="0"
+                    CornerRadius="50">
+                    <material:MaterialTextField
+                        AlwaysShowUnderline="True"
+                        BackgroundColor="{StaticResource White}"
+                        FloatingPlaceholderColor="{StaticResource LightGreen}"
+                        FloatingPlaceholderEnabled="True"
+                        InputType="Default"
+                        IsEnabled="{Binding IsNotBusy}"
+                        Placeholder="Username"
+                        PlaceholderColor="{StaticResource LightGreen}"
+                        PlaceholderFontFamily="{StaticResource OpenSansRegular}"
+                        ReturnType="Next"
+                        ShouldAnimateUnderline="True"
+                        Text="{Binding Username}"
+                        TextColor="{StaticResource LightGreen}"
+                        TextFontFamily="{StaticResource OpenSansRegular}"
+                        TextFontSize="15"
+                        TintColor="{StaticResource LightGreen}"
+                        UnderlineColor="{StaticResource LightGreen}" />
+                </yummy:PancakeView>
+
+
+                <yummy:PancakeView
+                    x:Name="PhoneNumberEntry"
+                    Padding="0"
+                    CornerRadius="50">
+                    <material:MaterialTextField
+                        AlwaysShowUnderline="True"
+                        BackgroundColor="{StaticResource White}"
+                        FloatingPlaceholderColor="{StaticResource LightGreen}"
+                        FloatingPlaceholderEnabled="True"
+                        InputType="Telephone"
+                        IsEnabled="{Binding IsNotBusy}"
+                        Placeholder="Phone Number"
+                        PlaceholderColor="{StaticResource LightGreen}"
+                        PlaceholderFontFamily="{StaticResource OpenSansRegular}"
+                        ReturnType="Next"
+                        ShouldAnimateUnderline="True"
+                        Text="{Binding PhoneNumber}"
+                        TextColor="{StaticResource LightGreen}"
+                        TextFontFamily="{StaticResource OpenSansRegular}"
+                        TextFontSize="15"
+                        TintColor="{StaticResource LightGreen}"
+                        UnderlineColor="{StaticResource LightGreen}" />
+                </yummy:PancakeView>
+
+                <yummy:PancakeView
+                    x:Name="UniversityEntry"
+                    Padding="0"
+                    CornerRadius="50">
+                    <material:MaterialTextField
+                        AlwaysShowUnderline="True"
+                        BackgroundColor="{StaticResource White}"
+                        FloatingPlaceholderColor="{StaticResource LightGreen}"
+                        FloatingPlaceholderEnabled="True"
+                        InputType="Default"
+                        IsEnabled="{Binding IsNotBusy}"
+                        Placeholder="University"
+                        PlaceholderColor="{StaticResource LightGreen}"
+                        PlaceholderFontFamily="{StaticResource OpenSansRegular}"
+                        ReturnType="Next"
+                        ShouldAnimateUnderline="True"
+                        Text="{Binding University}"
+                        TextColor="{StaticResource LightGreen}"
+                        TextFontFamily="{StaticResource OpenSansRegular}"
+                        TextFontSize="15"
+                        TintColor="{StaticResource LightGreen}"
+                        UnderlineColor="{StaticResource LightGreen}" />
+                </yummy:PancakeView>
+
+                <yummy:PancakeView
+                    x:Name="DepartmentEntry"
+                    Padding="0"
+                    CornerRadius="50">
+                    <material:MaterialTextField
+                        AlwaysShowUnderline="True"
+                        BackgroundColor="{StaticResource White}"
+                        FloatingPlaceholderColor="{StaticResource LightGreen}"
+                        FloatingPlaceholderEnabled="True"
+                        InputType="Default"
+                        IsEnabled="{Binding IsNotBusy}"
+                        Placeholder="Department"
+                        PlaceholderColor="{StaticResource LightGreen}"
+                        PlaceholderFontFamily="{StaticResource OpenSansRegular}"
+                        ReturnType="Next"
+                        ShouldAnimateUnderline="True"
+                        Text="{Binding Department}"
+                        TextColor="{StaticResource LightGreen}"
+                        TextFontFamily="{StaticResource OpenSansRegular}"
+                        TextFontSize="15"
+                        TintColor="{StaticResource LightGreen}"
+                        UnderlineColor="{StaticResource LightGreen}" />
+                </yummy:PancakeView>
+
+                <yummy:PancakeView
+                    x:Name="PasswordEntry"
+                    Padding="0"
+                    CornerRadius="50">
+                    <material:MaterialTextField
+                        AlwaysShowUnderline="True"
+                        BackgroundColor="{StaticResource White}"
+                        FloatingPlaceholderColor="{StaticResource LightGreen}"
+                        FloatingPlaceholderEnabled="True"
+                        InputType="Password"
+                        IsEnabled="{Binding IsNotBusy}"
+                        Placeholder="Password"
+                        PlaceholderColor="{StaticResource LightGreen}"
+                        PlaceholderFontFamily="{StaticResource OpenSansRegular}"
+                        ReturnType="Next"
+                        ShouldAnimateUnderline="True"
+                        Text="{Binding Password}"
+                        TextColor="{StaticResource LightGreen}"
+                        TextFontFamily="{StaticResource OpenSansRegular}"
+                        TextFontSize="15"
+                        TintColor="{StaticResource LightGreen}"
+                        UnderlineColor="{StaticResource LightGreen}" />
+                </yummy:PancakeView>
+
+                <yummy:PancakeView
+                    x:Name="ConfirmPasswordEntry"
+                    Padding="0"
+                    CornerRadius="50">
+                    <material:MaterialTextField
+                        AlwaysShowUnderline="True"
+                        BackgroundColor="{StaticResource White}"
+                        FloatingPlaceholderColor="{StaticResource LightGreen}"
+                        FloatingPlaceholderEnabled="True"
+                        InputType="Password"
+                        IsEnabled="{Binding IsNotBusy}"
+                        Placeholder="Confirm Password"
+                        PlaceholderColor="{StaticResource LightGreen}"
+                        PlaceholderFontFamily="{StaticResource OpenSansRegular}"
+                        ReturnType="Next"
+                        ShouldAnimateUnderline="True"
+                        Text="{Binding ConfirmPassword}"
+                        TextColor="{StaticResource LightGreen}"
+                        TextFontFamily="{StaticResource OpenSansRegular}"
+                        TextFontSize="15"
+                        TintColor="{StaticResource LightGreen}"
+                        UnderlineColor="{StaticResource LightGreen}" />
+                </yummy:PancakeView>
+            </StackLayout>
+
+            <Button
+                x:Name="SignUpButton"
+                Grid.Row="4"
+                Margin="10,0,10,0"
+                Command="{Binding SignUpCommand}"
+                IsEnabled="{Binding IsNotBusy}"
+                Style="{StaticResource WhiteButton}"
+                Text="Sign Up"
+                VerticalOptions="Center" />
+
+        </Grid>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary
+    x:Class="NaijaConnect.Styles.Buttons"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Style x:Key="WhiteButton" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{StaticResource White}" />
+        <Setter Property="TextColor" Value="{StaticResource Green}" />
+        <Setter Property="CornerRadius" Value="5" />
+        <Setter Property="FontSize" Value="Medium" />
+        <Setter Property="FontFamily" Value="{StaticResource OpenSansBold}" />
+    </Style>
+
+    <Style x:Key="LightGreenButton" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{StaticResource LightGreen}" />
+        <Setter Property="TextColor" Value="{StaticResource White}" />
+        <Setter Property="CornerRadius" Value="5" />
+        <Setter Property="FontSize" Value="Medium" />
+        <Setter Property="FontFamily" Value="{StaticResource OpenSansBold}" />
+
+    </Style>
+
+    <Style x:Key="GreenButton" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{StaticResource Green}" />
+        <Setter Property="TextColor" Value="{StaticResource White}" />
+        <Setter Property="CornerRadius" Value="5" />
+        <Setter Property="FontSize" Value="Medium" />
+        <Setter Property="FontFamily" Value="{StaticResource OpenSansBold}" />
+
+    </Style>
+
+    <Style x:Key="LightGreenButtonWithoutBackground" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="TextColor" Value="{StaticResource LightGreen}" />
+        <Setter Property="CornerRadius" Value="5" />
+        <Setter Property="FontSize" Value="Medium" />
+        <Setter Property="FontFamily" Value="{StaticResource OpenSansBold}" />
+        <Setter Property="BorderColor" Value="{StaticResource LightGreen}" />
+        <Setter Property="BorderWidth" Value="1" />
+
+    </Style>
+</ResourceDictionary>

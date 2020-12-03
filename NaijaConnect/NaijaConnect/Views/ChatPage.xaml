@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="NaijaConnect.Views.ChatPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:NaijaConnect.Controls"
+    xmlns:customcell="clr-namespace:NaijaConnect.CustomCell"
+    xmlns:model="clr-namespace:NaijaConnect.Models"
+    xmlns:prism="http://prismlibrary.com"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    NavigationPage.HasBackButton="False">
+
+    <NavigationPage.TitleView>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20" />
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="50" />
+            </Grid.ColumnDefinitions>
+
+            <Label
+                Grid.Column="0"
+                FontFamily="{StaticResource MaterialFontFamily}"
+                FontSize="30"
+                HorizontalTextAlignment="Center"
+                Text="{x:Static model:IconFont.ArrowLeft}"
+                TextColor="{StaticResource White}"
+                VerticalTextAlignment="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NavigateToPreviousPageCommand}" NumberOfTapsRequired="1" />
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Frame
+                Grid.Column="1"
+                Padding="0"
+                CornerRadius="25"
+                HeightRequest="50"
+                WidthRequest="50">
+                <Image
+                    HorizontalOptions="Center"
+                    Source="{Binding Avatar}"
+                    VerticalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ProfilePic_Tapped" />
+
+                    </Image.GestureRecognizers>
+                </Image>
+            </Frame>
+
+            <StackLayout Grid.Column="2" Orientation="Vertical" VerticalOptions="Center" Spacing="0">
+                <Label
+                x:Name="username"
+                HorizontalOptions="Start"
+                    VerticalOptions="Center"
+                Style="{StaticResource WhiteMediumBold}"
+                Text="{Binding Username}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavigateToProfileCommand}" NumberOfTapsRequired="1" />
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Label Text="{Binding Status}" Style="{StaticResource WhiteSmallRegular}" HorizontalOptions="Start"/>
+            </StackLayout>
+            
+
+            <Label
+                Grid.Column="3"
+                FontFamily="{StaticResource MaterialFontFamily}"
+                FontSize="30"
+                HorizontalTextAlignment="Center"
+                Text="{x:Static model:IconFont.ElectronFramework}"
+                TextColor="{StaticResource White}"
+                VerticalTextAlignment="Center" />
+        </Grid>
+    </NavigationPage.TitleView>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <customcell:ChatTemplateSelector x:Key="MessageTemplateSelector" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid ColumnSpacing="0" RowSpacing="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <CollectionView ItemTemplate="{StaticResource MessageTemplateSelector}" ItemsSource="{Binding Chats}" />
+
+        <Grid Grid.Row="1" Margin="10,0,0,10" BackgroundColor="Transparent">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="50" />
+            </Grid.ColumnDefinitions>
+
+
+            <controls:ExtendedEditorControl
+                HasRoundedCorner="True"
+                x:Name="chatTextInput"
+                Grid.Column="0"
+                HorizontalOptions="FillAndExpand"
+                IsExpandable="True"
+                Keyboard="Chat"
+                Placeholder="Message"
+                PlaceholderColor="Green"
+                Text="{Binding Message}" />
+
+            <Label
+                Grid.Column="1"
+                Padding="0,0,10,0"
+                FontFamily="{StaticResource MaterialFontFamily}"
+                FontSize="35"
+                HorizontalTextAlignment="Center"
+                Text="{x:Static model:IconFont.Send}"
+                TextColor="{StaticResource Green}"
+                VerticalTextAlignment="End">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NavigateToSendCommandCommand}" NumberOfTapsRequired="1" />
+                </Label.GestureRecognizers>
+            </Label>
+        </Grid>
+    </Grid>
+</ContentPage>

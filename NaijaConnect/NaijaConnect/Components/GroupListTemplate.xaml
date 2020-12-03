@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="NaijaConnect.Components.GroupListTemplate"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <ContentView.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="70" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Frame
+                Grid.Row="0"
+                Grid.Column="0"
+                Padding="0"
+                CornerRadius="30"
+                HeightRequest="60"
+                HorizontalOptions="Center"
+                IsClippedToBounds="True"
+                VerticalOptions="Center"
+                WidthRequest="60">
+                <!--<Frame.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Tapped" />
+                </Frame.GestureRecognizers>-->
+                <Image
+                    HorizontalOptions="Center"
+                    Source="{Binding ProfilePicture}"
+                    VerticalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Tapped" />
+
+                    </Image.GestureRecognizers>
+                </Image>
+            </Frame>
+
+            <StackLayout
+                Grid.Row="0"
+                Grid.Column="1"
+                Spacing="0"
+                VerticalOptions="Center">
+                <Label
+                    x:Name="username"
+                    HorizontalOptions="Start"
+                    Style="{StaticResource BlackMediumBold}"
+                    Text="{Binding Groupname}" />
+                <Label
+                    HorizontalOptions="Start"
+                    Style="{StaticResource BlackSmallRegular}"
+                    Text="{Binding LastMessage}" />
+            </StackLayout>
+
+            <BoxView
+                Grid.Row="0"
+                Grid.Column="1"
+                HeightRequest="1"
+                Opacity="0.3"
+                VerticalOptions="End"
+                Color="{StaticResource Green}" />
+        </Grid>
+    </ContentView.Content>
+</ContentView>

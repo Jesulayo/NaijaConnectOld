@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="NaijaConnect.Views.SearchPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:prism="http://prismlibrary.com"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    BackgroundColor="{StaticResource White}"
+    NavigationPage.HasBackButton="False">
+
+    <NavigationPage.TitleView>
+        <Grid>
+            <Frame
+                Margin="0,0,15,0"
+                Padding="0"
+                CornerRadius="10"
+                HeightRequest="50"
+                IsClippedToBounds="True">
+                <SearchBar
+                    BackgroundColor="{StaticResource White}"
+                    CancelButtonColor="Red"
+                    Placeholder="Search"
+                    PlaceholderColor="{StaticResource LightGreen}" />
+            </Frame>
+            <BoxView Color="Transparent">
+                <BoxView.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NavigateToSearchCommand}" />
+                </BoxView.GestureRecognizers>
+            </BoxView>
+        </Grid>
+    </NavigationPage.TitleView>
+
+    <StackLayout>
+
+        <Label
+            Margin="10,5,10,0"
+            HorizontalOptions="Start"
+            Style="{StaticResource BlackSmallRegular}"
+            Text="Topics you may like" />
+        <CollectionView Margin="10,10,10,0" ItemsSource="{Binding Topics}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid HeightRequest="30">
+
+                        <Frame
+                            Padding="5"
+                            BorderColor="{StaticResource Green}"
+                            CornerRadius="10"
+                            HasShadow="False">
+                            <Label
+                                HorizontalOptions="Start"
+                                Style="{StaticResource BlackSmallRegular}"
+                                Text="{Binding .}"
+                                VerticalOptions="Center" />
+                        </Frame>
+                    </Grid>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout
+                    HorizontalItemSpacing="10"
+                    Orientation="Vertical"
+                    Span="2"
+                    VerticalItemSpacing="10" />
+            </CollectionView.ItemsLayout>
+        </CollectionView>
+
+
+    </StackLayout>
+</ContentPage>
