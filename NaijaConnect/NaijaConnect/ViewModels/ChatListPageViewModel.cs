@@ -19,14 +19,44 @@ namespace NaijaConnect.ViewModels
         private DelegateCommand NewChatPageCommand;
         private DelegateCommand ChatSelectionCommand;
         private DelegateCommand _delegateRefreshCommand;
+        private DelegateCommand ProfileCommand;
+        
 
         public DelegateCommand NavigateNewChatPageCommand => NewChatPageCommand ?? (NewChatPageCommand = new DelegateCommand(ExecuteNavigateToNewChatPageCommand));
         public DelegateCommand NavigateChatSelectionCommand => ChatSelectionCommand ?? (ChatSelectionCommand = new DelegateCommand(ExecuteNavigateToChatSelectionCommand));
         public DelegateCommand NavigateRefreshCommand => _delegateRefreshCommand ?? (_delegateRefreshCommand = new DelegateCommand(RetrieveMessage));
+        public DelegateCommand NavigateProfileCommand => ProfileCommand ?? (ProfileCommand = new DelegateCommand(ExecuteNavigateToProfileCommand));
+
 
 
         public ObservableCollection<DisplayChat> ChatList { get; set; }
         public ObservableCollection<string> ChatUsernameList { get; set; }
+
+        private string username;
+        public string Username
+        {
+            get
+            {
+                return username;
+            }
+            set
+            {
+                SetProperty(ref username, value);
+            }
+        }
+
+        private string avatar;
+        public string Avatar
+        {
+            get
+            {
+                return avatar;
+            }
+            set
+            {
+                SetProperty(ref avatar, value);
+            }
+        }
 
         private DisplayChat chatSelection;
         public DisplayChat ChatSelection
@@ -58,7 +88,8 @@ namespace NaijaConnect.ViewModels
         public ChatListPageViewModel(INavigationService navigationService)
             : base(navigationService)
         {
-            Title = "Chats";
+            Username = Settings.UsernameSettings;
+            Avatar = Settings.AvatarSettings;
             remoteService = new RemoteService();
             ChatList = new ObservableCollection<DisplayChat>();
             ChatUsernameList = new ObservableCollection<string>();
@@ -149,58 +180,10 @@ namespace NaijaConnect.ViewModels
 
         }
 
-        //if (item.SenderEmail == Settings.EmailSettings)
-        //{
-        //    var chat = new DisplayChat()
-        //    {
-        //        Name = item.Receiver,
-        //        Message = item.Message
-        //    };
-        //    //ChatList.Add(chat);
-        //    if (ChatList.Count == 0)
-        //    {
-        //        ChatList.Add(chat);
-        //    }
-        //    else
-        //    {
-        //        foreach (var items in ChatList.ToList())
-        //        {
-        //            if (chat.Name != items.Name)
-        //            {
-        //                ChatList.Add(chat);
+        private void ExecuteNavigateToProfileCommand()
+        {
+            NavigationService.NavigateAsync("ProfilePage");
+        }
 
-        //            }
-        //        }
-        //    }
-        //}
-        //else if (item.ReceiverEmail == Settings.EmailSettings)
-        //{
-        //    var chat = new DisplayChat()
-        //    {
-        //        Name = item.Sender,
-        //        Message = item.Message
-        //    };
-
-        //    //ChatList.Add(chat);
-        //    if (ChatList.Count == 0)
-        //    {
-        //        ChatList.Add(chat);
-        //    }
-        //    else
-        //    {
-        //        foreach (var items in ChatList)
-        //        {
-        //            if(items && !ChatList.Contains(items.Name))
-        //            {
-
-        //            }
-        //            //if (chat.Name != items.Name)
-        //            //{
-        //            //    ChatList.Add(chat);
-
-        //            //}
-        //        }
-        //    }
-        //}
     }
 }

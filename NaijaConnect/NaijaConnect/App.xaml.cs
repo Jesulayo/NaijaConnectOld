@@ -72,7 +72,7 @@ namespace NaijaConnect
             }
             else
             {
-                NavigationService.NavigateAsync("NavigationPage/HomePage");
+                NavigationService.NavigateAsync("NavigationPage/ChatListPage");
             }
         }
 

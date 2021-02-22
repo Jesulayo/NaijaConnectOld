@@ -121,7 +121,7 @@ namespace NaijaConnect.ViewModels
 
                     Email = null;
                     Password = null;
-                    await NavigationService.NavigateAsync("/NavigationPage/HomePage");
+                    await NavigationService.NavigateAsync("/NavigationPage/ChatListPage");
 
                     MainThread.BeginInvokeOnMainThread(async () =>
                     {

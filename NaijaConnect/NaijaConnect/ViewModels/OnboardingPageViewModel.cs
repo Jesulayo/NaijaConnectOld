@@ -42,17 +42,17 @@ namespace NaijaConnect.ViewModels
             welcomeList.Add(new Welcome
             {
                 Note = "Connect with other students",
-                Picture = "OnBoarding8.jpg"
+                Picture = "OnboardingD.jpg"
             });
             welcomeList.Add(new Welcome
             {
                 Note = "Chat with other students",
-                Picture = "OnBoarding7.jpg"
+                Picture = "OnboardingB.jpg"
             });
             welcomeList.Add(new Welcome
             {
                 Note = "Meet other students",
-                Picture = "OnBoarding3.jpg"
+                Picture = "OnboardingC.jpg"
             });
 
             return welcomeList;
